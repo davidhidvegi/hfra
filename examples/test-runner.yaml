@@ -12,10 +12,10 @@ jobs:
           https://hfra.your.domain.com/api/need-runner
 
   amdtest:
-    name: test amd runners
+    name: test job
     runs-on: shared-amd-xs
     needs:
       - runners
     steps:
       - run: echo "All Good!" 
-      - run: echo Something here would run for approximately 600 seconds
+      - run: echo "Something here would run for approximately 600 seconds"
