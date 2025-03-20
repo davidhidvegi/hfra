@@ -19,12 +19,12 @@ This allows you to rent servers/runners on demand in a range of $0.0088 - $0.611
 Clone the repo then compile the code to a [Single-file executable](https://bun.sh/docs/bundler/executables) file (it takes 5 seconds). In case you target ARM arch then change use `--target=bun-linux-arm64`.
 
 ```
-bun build --compile --target=bun-linux-x64 ./index.ts --outfile hrfa
+bun build --compile --target=bun-linux-x64 ./index.ts --outfile hfra
 ```
 
 ### Configure
 
-Copy the [.env.example](.env.example) to the target server's (where you'll run the hrfa service) `/etc/hfra/.env` and configure it's variables:
+Copy the [.env.example](.env.example) to the target server's (where you'll run the hfra service) `/etc/hfra/.env` and configure it's variables:
 
 - **HFRA_URL** is where you'll run the hfra service, runners will notify this url when they are idle
 - **SERVER_NAME_PREFIX** will be prepended to the name of the rented hetzner node
@@ -34,7 +34,7 @@ The remaining variables are self explanatory, once you configured the .env file,
 
 ### Start
 
-Move the executable file to the target server as `/etc/hfra/hfra`, and copy the [hrfa.service](hfra.service) to `/etc/systemd/system/hrfa.service`, then start and enable it.
+Move the executable file to the target server as `/etc/hfra/hfra`, and copy the [hfra.service](hfra.service) to `/etc/systemd/system/hfra.service`, then start and enable it.
 
 ```
 systemctl enable hfra.service
