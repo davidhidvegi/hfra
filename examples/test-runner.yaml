@@ -1,0 +1,21 @@
+on: [workflow_dispatch]
+    
+jobs:
+  runners:
+    name: request runners from hfra
+    runs-on: lite
+    steps:
+      - run: |
+          curl -X POST \
+          -H "Content-Type:application/json" \
+          -d '{"needed_runner_type":"shared-arm-xs", "planned_usage_seconds":600, "max_wait_seconds":100}' \
+          https://hfra.your.domain.com/api/need-runner
+
+  amdtest:
+    name: test amd runners
+    runs-on: shared-amd-xs
+    needs:
+      - runners
+    steps:
+      - run: echo "All Good!" 
+      - run: echo Something here would run for approximately 600 seconds

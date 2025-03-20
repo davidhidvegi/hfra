@@ -1,0 +1,16 @@
+[Unit]
+Description=hfra runner manager
+Wants=network.target
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/etc/hfra
+ExecStart=/etc/hfra/hfra
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
